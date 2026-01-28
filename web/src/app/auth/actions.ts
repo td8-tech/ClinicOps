@@ -29,6 +29,7 @@ export async function signup(prevState: any, formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
   const fullName = formData.get('fullName') as string
+  const clinicName = formData.get('clinicName') as string
 
   const { error } = await supabase.auth.signUp({
     email,
@@ -36,6 +37,7 @@ export async function signup(prevState: any, formData: FormData) {
     options: {
       data: {
         full_name: fullName,
+        clinic_name: clinicName, // Pass clinic name to trigger
       },
     },
   })
@@ -44,8 +46,9 @@ export async function signup(prevState: any, formData: FormData) {
     return { error: error.message }
   }
 
+  // Clinic created by trigger, go straight to dashboard
   revalidatePath('/', 'layout')
-  redirect('/onboarding')
+  redirect('/dashboard')
 }
 
 export async function createClinic(prevState: any, formData: FormData) {

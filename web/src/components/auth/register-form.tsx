@@ -23,6 +23,10 @@ export function RegisterForm() {
       <CardContent>
         <form action={formAction} className="grid gap-4">
           <div className="grid gap-2">
+            <Label htmlFor="clinicName">Nome da Clínica</Label>
+            <Input id="clinicName" name="clinicName" type="text" placeholder="Ex: Clínica Saúde" required />
+          </div>
+          <div className="grid gap-2">
             <Label htmlFor="fullName">Nome Completo</Label>
             <Input id="fullName" name="fullName" type="text" required />
           </div>
