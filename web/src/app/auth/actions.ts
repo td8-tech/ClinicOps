@@ -31,10 +31,13 @@ export async function signup(prevState: any, formData: FormData) {
   const fullName = formData.get('fullName') as string
   const clinicName = formData.get('clinicName') as string
 
+  const origin = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+
   const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
+      emailRedirectTo: `${origin}/auth/callback`,
       data: {
         full_name: fullName,
         clinic_name: clinicName, // Pass clinic name to trigger
