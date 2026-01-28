@@ -39,6 +39,24 @@ export default function DashboardLayout() {
           tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />
         }} 
       />
+      <Tabs.Screen 
+        name="pacientes/new" 
+        options={{ 
+          href: null, // Hide from tab bar
+        }} 
+      />
+      <Tabs.Screen 
+        name="pacientes/[id]/index" 
+        options={{ 
+          href: null, // Hide from tab bar
+        }} 
+      />
+      <Tabs.Screen 
+        name="agenda/new" 
+        options={{ 
+          href: null, // Hide from tab bar
+        }} 
+      />
     </Tabs>
   );
 }

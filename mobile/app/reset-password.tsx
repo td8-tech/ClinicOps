@@ -13,7 +13,11 @@ export default function ResetPassword() {
 
     setLoading(true);
     // Note: Deep linking needs to be configured for this to redirect back to app
-    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    // For now, we redirect to the web reset page which handles the token exchange
+    // We append a timestamp to prevent caching and ensure unique URL
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `http://localhost:3000/auth/callback?next=/auth/update-password`,
+    });
     setLoading(false);
 
     if (error) {
