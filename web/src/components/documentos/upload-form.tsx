@@ -1,7 +1,7 @@
 'use client'
 
 import { useActionState, useState } from 'react'
-import { uploadDocument } from '@/app/(dashboard)/documentos/actions'
+import { uploadDocument, type UploadDocumentState } from '@/app/(dashboard)/documentos/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-const initialState = {
+const initialState: UploadDocumentState = {
   error: '',
   success: false
 }

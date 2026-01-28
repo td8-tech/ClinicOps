@@ -3,7 +3,12 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 
-export async function resetPassword(prevState: any, formData: FormData) {
+export type ResetPasswordState = {
+  error?: string
+  success?: string
+}
+
+export async function resetPassword(prevState: ResetPasswordState, formData: FormData): Promise<ResetPasswordState> {
   const supabase = await createClient()
   const email = formData.get('email') as string
 

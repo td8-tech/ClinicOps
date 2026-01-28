@@ -29,7 +29,7 @@ export function LoginForm() {
           <div className="grid gap-2">
             <div className="flex items-center justify-between">
                 <Label htmlFor="password">Senha</Label>
-                <Link href="/auth/reset-password" class="text-xs text-blue-500 hover:underline">
+                <Link href="/auth/reset-password" className="text-xs text-blue-500 hover:underline">
                     Esqueceu?
                 </Link>
             </div>

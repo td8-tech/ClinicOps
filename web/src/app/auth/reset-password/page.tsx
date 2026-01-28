@@ -1,14 +1,14 @@
 'use client'
 
 import { useActionState } from 'react'
-import { resetPassword } from './actions'
+import { resetPassword, type ResetPasswordState } from './actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import Link from 'next/link'
 
-const initialState = {
+const initialState: ResetPasswordState = {
   error: '',
   success: ''
 }

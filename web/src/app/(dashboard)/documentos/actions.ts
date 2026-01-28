@@ -4,7 +4,12 @@ import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
-export async function uploadDocument(prevState: any, formData: FormData) {
+export type UploadDocumentState = {
+    error?: string
+    success?: boolean
+}
+
+export async function uploadDocument(prevState: UploadDocumentState, formData: FormData): Promise<UploadDocumentState> {
     const supabase = await createClient()
     
     const file = formData.get('arquivo') as File
